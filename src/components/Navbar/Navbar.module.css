@@ -1,0 +1,79 @@
+.nav {
+    grid-area: nav;
+    background-color: blueviolet;
+    padding:  20px 20px;
+    -webkit-box-shadow: -11px 3px 25px -6px rgba(0,0,0,0.55);
+    -moz-box-shadow: -11px 3px 25px -6px rgba(0,0,0,0.55);
+    box-shadow: -11px 3px 25px -6px rgba(0,0,0,0.55);
+
+}
+  
+  .item + .item {
+    margin-top: 10px;
+  }
+
+  .item {
+      position: relative;
+      padding-left: 30px;
+  }
+
+
+  .item:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -20px;
+      width: 40px;
+      height: 40px;
+      background-repeat: no-repeat;
+      background-size: 20px 20px;
+  }
+
+.item:nth-child(1)::before {
+    content: '';
+    background-image: url("./../../images/user.png");
+}
+
+  .item:nth-child(2)::before {
+      content: '';
+      background-image: url("./../../images/message.png");
+  }
+
+
+   .item:nth-child(3)::before {
+      content: '';
+      background-image: url("./../../images/news.png");
+  }
+
+    .item:nth-child(4)::before {
+      content: '';
+      background-image: url("./../../images/musical-note.png");
+  }
+
+    .item:nth-child(5)::before {
+      content: '';
+      background-image: url("./../../images/settings.png");
+  }
+
+
+
+  .link {
+    text-decoration:none;
+    color: #fff;
+    font-weight: 400;
+    font-size: 20px;
+    transition: all ease .5s;
+  }
+
+
+
+  .link:hover {
+      color: gold;
+  }
+
+  .active {
+      color: gold;
+      font-weight: 400;
+      font-size: 20px;
+      text-decoration:none;
+  }

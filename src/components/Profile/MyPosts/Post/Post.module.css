@@ -1,0 +1,13 @@
+
+.item {
+  color: green;
+}
+
+.content__img {
+  max-height: 300px;
+  width: 100%;
+}
+
+.avatar__img {
+  width: 100px;
+}

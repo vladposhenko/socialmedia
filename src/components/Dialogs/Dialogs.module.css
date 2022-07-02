@@ -1,0 +1,89 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+    padding: 20px;
+    gap: 50px;
+}
+
+.dialogsItems .active {
+    color: gold;
+}
+
+.dialog {
+    background-color: #fff;
+    border-radius: 4px;
+    padding-left: 70px;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    font-size: 20px;
+    position: relative;
+}
+
+.dialog::before {
+    content: '';
+    position: absolute;
+    background: blueviolet;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    left: 10px;
+    top: 20%;
+}
+
+.dialog a {
+    text-decoration: none;
+    transition: all ease .5s;
+}
+
+.dialog a:hover {
+    color: gold;
+}
+
+.dialog + .dialog {
+    margin-top: 20px;
+}
+
+
+.messages {
+
+}
+
+
+.message {
+    background: blueviolet;
+    display: flex;
+    justify-content: flex-start;
+    color: white;
+    position: relative;
+    padding-left: 70px;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+}
+
+.message:before {
+    content: '';
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    left: 10px;
+    top: 20%;
+}
+
+.message:nth-child(2n+1) {
+    justify-content: flex-end;
+    padding-left: 20px;
+    padding-right: 70px;
+}
+
+.message:nth-child(2n+1)::before {
+    left: 93%;
+}
+
+.message + .message {
+    margin-top: 20px;
+}
