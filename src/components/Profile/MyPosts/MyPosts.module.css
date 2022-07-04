@@ -5,3 +5,23 @@
 .posts {
     margin-top: 20px;
 }
+
+.textarea {
+    resize: none;
+    padding: 10px;
+    width: 94%;
+}
+
+.send {
+    background: blueviolet;
+    color: #fff;
+    width: 120px;
+    height: 30px;
+    border: none;
+    transition: all ease .5s;
+    cursor: pointer;
+}
+.send:hover {
+    background: palevioletred;
+
+}

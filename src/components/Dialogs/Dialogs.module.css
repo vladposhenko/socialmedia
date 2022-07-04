@@ -46,7 +46,10 @@
 
 
 .messages {
-
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 
@@ -61,6 +64,7 @@
     padding-right: 20px;
     padding-bottom: 20px;
     border-radius: 10px;
+
 }
 
 .message:before {
@@ -84,6 +88,17 @@
     left: 93%;
 }
 
-.message + .message {
-    margin-top: 20px;
+
+
+.dialogsTextarea {
+    width: 100%;
+    resize: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+}
+
+.actionArea {
+    display: flex;
+    justify-content: flex-end;
 }
