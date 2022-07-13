@@ -47,9 +47,10 @@
 
 .messages {
     position: relative;
-    display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 500px;
+    overflow-y: scroll;
 }
 
 
@@ -64,7 +65,10 @@
     padding-right: 20px;
     padding-bottom: 20px;
     border-radius: 10px;
+}
 
+.message + .message {
+    margin-top: 60px;
 }
 
 .message:before {
