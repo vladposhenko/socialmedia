@@ -13,11 +13,11 @@ let mapStateToProps = (state) => {
 // кооллбеки
 let mapDispatchToProps = (dispatch) => {
     return {
-        updateNewMessageBody: () => {
-            dispatch(sendMessageCreator())
+        updateNewMessageBody: (message) => {
+            dispatch(updateNewMessageBodyCreator(message))
         },
         sendMessage: (message) => {
-            dispatch(updateNewMessageBodyCreator(message))
+            dispatch(sendMessageCreator())
         },
     }
 }
