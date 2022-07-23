@@ -1,0 +1,14 @@
+.pageContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+.selectedPage {
+    font-weight: 800;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.page {
+    margin-right: 10px;
+    display: block;
+}
