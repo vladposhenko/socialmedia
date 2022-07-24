@@ -1,0 +1,10 @@
+.preloader{
+    width: 66%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(53, 167, 187, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 33%;
+}

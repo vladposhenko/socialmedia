@@ -1,6 +1,7 @@
 .pageContainer {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 50px;
 }
 .selectedPage {
     font-weight: 800;
@@ -11,4 +12,14 @@
 .page {
     margin-right: 10px;
     display: block;
+}
+
+.usersContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.user {
+    flex-basis: 28%;
 }

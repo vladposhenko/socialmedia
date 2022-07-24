@@ -11,8 +11,9 @@ let Users = (props) => {
     }
     return (
         <div>
+            <div className={classes.usersContainer}>
             {
-                props.users.map(user => <div key={user.id}>
+                props.users.map(user => <div className={classes.user} key={user.id}>
                     <span>
                         <div>
                             <img src={user.photos.small !== null ? user.photos.small : userPhoto}
@@ -42,6 +43,7 @@ let Users = (props) => {
 
                 </div>)
             }
+            </div>
             <div className={classes.pageContainer}>
                 {pages.map(page => {
                     return <span className={props.currentPage === page ? classes.selectedPage : classes.page}
