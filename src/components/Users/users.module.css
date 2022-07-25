@@ -3,10 +3,39 @@
     flex-wrap: wrap;
     margin-top: 50px;
 }
+
+.pageContainer li {
+    display: inline-block;
+    border-radius: 2px;
+    text-align: center;
+    vertical-align: top;
+    height: 30px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: .3s ease-out;
+
+}
+
+.pageLink {
+    color: #444;
+    display: inline-block;
+    font-size: 1.2rem;
+    padding: 0 10px;
+    line-height: 30px;
+    text-decoration: none;
+}
 .selectedPage {
     font-weight: 800;
     font-size: 16px;
     margin-right: 10px;
+    background-color: blueviolet;
+    color: #ffffff;
+}
+.selectedPage .pageLink {
+    color: #fff;
 }
 
 .page {

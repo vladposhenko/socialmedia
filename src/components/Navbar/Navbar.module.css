@@ -5,7 +5,8 @@
     -webkit-box-shadow: -11px 3px 25px -6px rgba(0,0,0,0.55);
     -moz-box-shadow: -11px 3px 25px -6px rgba(0,0,0,0.55);
     box-shadow: -11px 3px 25px -6px rgba(0,0,0,0.55);
-
+    height: 100%;
+    line-height: 31px;
 }
   
   .item + .item {
@@ -22,7 +23,7 @@
       content: '';
       position: absolute;
       left: 0;
-      bottom: -20px;
+      bottom: -14px;
       width: 40px;
       height: 40px;
       background-repeat: no-repeat;
