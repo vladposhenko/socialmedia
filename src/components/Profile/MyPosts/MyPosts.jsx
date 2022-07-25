@@ -20,11 +20,11 @@ const MyPosts = (props) => {
         <div className={classes.postsBlock}>
           <h3>My Posts</h3>
             <div>
-                <textarea className={classes.textarea} onChange={onPostChange} ref={newPostElement}
+                <textarea class="materialize-textarea" id="autocomplete-input"  onChange={onPostChange} ref={newPostElement}
                           value={props.newPostText} />
             </div>
             <div>
-                <button className={classes.send} onClick={onAddPost}>Add Post</button>
+                <button class=" btn-small scale-transition" className={classes.send} onClick={onAddPost}>Add Post</button>
             </div>
           <div className={classes.posts}>
               {postElements}

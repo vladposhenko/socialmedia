@@ -2,9 +2,7 @@
     grid-area: nav;
     background-color: blueviolet;
     padding:  20px 20px;
-    -webkit-box-shadow: -11px 3px 25px -6px rgba(0,0,0,0.55);
-    -moz-box-shadow: -11px 3px 25px -6px rgba(0,0,0,0.55);
-    box-shadow: -11px 3px 25px -6px rgba(0,0,0,0.55);
+    border-radius: 5px;
     height: 100%;
     line-height: 31px;
 }

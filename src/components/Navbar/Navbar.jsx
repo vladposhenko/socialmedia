@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom";
 
 const Navbar = () => {
     return (
-        <nav className={classes.nav}>
+        <nav class="z-depth-3 col s5" className={classes.nav}>
             <div className={classes.item}>
                 <NavLink className={navData => navData.isActive ? classes.active : classes.link }  to="/profile">Profile</NavLink>
             </div>
