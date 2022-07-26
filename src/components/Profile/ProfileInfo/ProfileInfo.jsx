@@ -1,6 +1,6 @@
 import classes from './ProfileInfo.module.css'
 import Preloader from "../../common/Preloader/Preloader";
-
+import user from "./../../../assets/images/user.png"
 const ProfileInfo = (props) => {
     if(!props.profile) {
         return <Preloader/>
@@ -11,7 +11,10 @@ const ProfileInfo = (props) => {
                 <img className={classes.content__img} src="https://images.ctfassets.net/hrltx12pl8hq/7yQR5uJhwEkRfjwMFJ7bUK/dc52a0913e8ff8b5c276177890eb0129/offset_comp_772626-opt.jpg?fit=fill&w=800&h=300" alt=""></img>
             </div>
             <div class="row margin" className={classes.descriptionBlock}>
-              <img class="col s2" className={classes.avatar__img} src={props.profile.photos.large} alt=""></img>
+              <img class="col s2" className={classes.avatar__img} src={props.profile.photos.large
+                  ? props.profile.photos.large
+                  : "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+              } alt=""></img>
                 <div class="col s4">
                     <p>{props.profile.fullName}</p>
                     <h6>Статус:</h6>
