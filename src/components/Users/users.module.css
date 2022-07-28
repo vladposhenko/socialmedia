@@ -52,3 +52,7 @@
 .user {
     flex-basis: 28%;
 }
+
+.btnDisabled:disabled {
+    color: red;
+}
