@@ -1,3 +1,6 @@
+import {usersAPI} from "../api/api";
+// import {toggleFollowingProgress, unfollowSuccess} from "./users-reducer";
+
 const SET_USERS_DATA = 'SET_USERS_DATA'
 let initialState = {
     userId: null,
@@ -20,7 +23,17 @@ const authReducer = (state = initialState,action) => {
 }
 
 export const setAuthUsersData = (userId, email, login) => ({type:SET_USERS_DATA,data: {userId, email, login}})
-// export const follow = (userId) => ({type:FOLLOW, userId:userId})
+
+export const getAuth = () => {
+    return (dispatch) => {
+        usersAPI.getAuth().then(response => {
+            if (response.data.resultCode === 0) {
+                let {id,login,email} = response.data.data
+                dispatch(setAuthUsersData(id, email, login))
+            }
+        })
+    }
+}
 
 
 
