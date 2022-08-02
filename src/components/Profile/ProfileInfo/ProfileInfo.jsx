@@ -1,6 +1,7 @@
 import classes from './ProfileInfo.module.css'
 import Preloader from "../../common/Preloader/Preloader";
-const ProfileInfo = (props) => {
+import ProfileStatus from "./ProfileStatus"
+const  ProfileInfo = (props) => {
     if(!props.profile) {
         return <Preloader/>
     }
@@ -16,8 +17,7 @@ const ProfileInfo = (props) => {
               } alt=""></img>
                 <div class="col s4">
                     <p>{props.profile.fullName}</p>
-                    <h6>Статус:</h6>
-                    <p>{props.profile.aboutMe}</p>
+                    <ProfileStatus aboutMe={props.profile.aboutMe} status={props.status} updateStatus={props.updateStatus}/>
                 </div>
             </div>
             <div>

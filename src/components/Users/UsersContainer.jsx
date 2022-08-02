@@ -10,6 +10,8 @@ import {
 } from "../../Redux/users-reducer";
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
+import {compose} from "redux";
+import {withAuthRedirect} from "../hoc/withAuthRedirect";
 
 class UsersContainer extends React.Component {
 
@@ -24,13 +26,6 @@ class UsersContainer extends React.Component {
 
     onPageChanged = (page) => {
         this.props.getUsers(page, this.props.pageSize);
-        // this.props.setCurrentPage(page)
-        // this.props.toggleIsFetching(true)
-        // getUsersPage(page, this.props.pageSize).then(response => {
-        //     this.props.toggleIsFetching(false)
-        //     this.props.setUsers(response.data.items)
-        //     this.props.setTotalUsersCount(response.data.totalCount)
-        // })
     }
 
     render() {
@@ -65,29 +60,6 @@ let mapStateToProps = (state) => {
         followingInProgress: state.usersPage.followingInProgress
     }
 }
-// кооллбеки
-// let mapDispatchToProps = (dispatch) => {
-//     return {
-//         follow: (userId) => {
-//             dispatch(followAC(userId))
-//         },
-//         unfollow: (userId) => {
-//             dispatch(unFollowAC(userId))
-//         },
-//         setUsers: (users) => {
-//             dispatch(setUsersAC(users))
-//         },
-//         setCurrentPage: (pageNumber) => {
-//             dispatch(setCurrentPageAC(pageNumber))
-//         },
-//         setTotalUsersCount: (totalCount) => {
-//             dispatch(setUsersTotalCountAC(totalCount))
-//         },
-//         toggleIsFetching: (isFetching) => {
-//             dispatch(toggleIsFetchingAC(isFetching))
-//         }
-//     }
-// }
 
 
 export default connect(mapStateToProps, {
@@ -98,3 +70,15 @@ export default connect(mapStateToProps, {
     toggleFollowingProgress,
     getUsers,
 })(UsersContainer);
+
+// export default compose(
+//     withAuthRedirect,
+//     connect(mapStateToProps, {
+//         follow,
+//         unfollow,
+//         setCurrentPage,
+//         setTotalUsersCount,
+//         toggleFollowingProgress,
+//         getUsers,
+//     })
+// )(UsersContainer)
