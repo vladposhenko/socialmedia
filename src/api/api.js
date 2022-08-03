@@ -40,3 +40,9 @@ export const profileAPI = {
         return instance.put(`profile/status`, {status:status})
     }
 }
+
+export const authApi = {
+    postUser () {
+        return instance.post('login')
+    }
+}
