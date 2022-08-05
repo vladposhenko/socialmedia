@@ -1,27 +1,36 @@
 import React from "react";
 import {Field, reduxForm} from "redux-form";
 import {connect} from "react-redux";
-import {setUser} from "../../Redux/auth-reducer";
-import {Element} from "../common/FormsControls/FormsControls";
+import {CheckBox,  Input} from "../common/FormsControls/FormsControls";
 import {required} from "../../utilits/validators/validators";
+import Button from '@mui/material/Button';
+import {login} from "../../Redux/auth-reducer";
+import {Navigate} from "react-router-dom";
+import classes from "./Login.module.css";
+import {Alert} from "@mui/material";
 
-const Input = Element("input");
+// const Input = Element("input");
 
 const LoginForm = (props) => {
     return(
         <div>
             <form onSubmit={props.handleSubmit}>
                 <div>
-                    <Field validate={[required]} placeholder={'Login'} name={'login'} component={Input}/>
+                    <Field className={classes.loginInput} validate={[required]} placeholder={'Email'} name={'email'} component={Input}/>
                 </div>
                 <div>
-                    <Field validate={[required]} placeholder={'Password'} name={'password'} component={Input}/>
+                    <Field className={classes.loginInput} validate={[required]} placeholder={'Password'} name={'password'} type={'password'} component={Input} />
                 </div>
                 <div>
-                    <Field component={Input} name={'rememberMe'} type="checkbox"/> <span>remember me</span>
+                    <Field  component={CheckBox} name={'rememberMe'} type="checkbox"/> <div className={classes.remember}>Remember Me</div>
                 </div>
+                { props.error &&
+                    <Alert severity="error" className={classes.error}>
+                        {props.error}
+                    </Alert>
+                }
                 <div>
-                    <button type={"submit"}>Send</button>
+                    <Button className={classes.loginButton} variant="contained" color="secondary" size={'small'} type={"submit"}>Send</Button>
                 </div>
             </form>
         </div>
@@ -33,28 +42,28 @@ const LoginReduxForm = reduxForm({
     form: 'login'
 })(LoginForm)
 
-
-
-
 const Login = (props) => {
     const onSubmit = (formData) => {
-        setUser(formData)
+        props.login(formData.email, formData.password, formData.rememberMe)
+        console.log(formData)
     }
-    return(
-        <div>
-            <h1>LOGIN</h1>
-            <LoginReduxForm onSubmit={onSubmit} />
-        </div>
-    )
+    if (props.isAuth) {
+        return <Navigate to="/profile"/>
+    } else {
+        return(
+            <div className={classes.loginPage}>
+                <h1>LOGIN</h1>
+                <LoginReduxForm onSubmit={onSubmit} />
+            </div>
+        )
+    }
 }
 
-let mapStateToProps = (state) => {
-    return {
-        users: state.usersPage.users,
-    }
-}
 
+const mapStateToProps = (state) => ({
+    isAuth: state.auth.isAuth
+})
 
 export default connect(mapStateToProps,{
-    setUser
+    login
 })(Login)

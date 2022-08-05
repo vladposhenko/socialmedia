@@ -1,12 +1,14 @@
 import classes from './ProfileInfo.module.css'
 import Preloader from "../../common/Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus"
+import Button from "@mui/material/Button";
 const  ProfileInfo = (props) => {
+
     if(!props.profile) {
         return <Preloader/>
     }
     return (
-        <div>
+        <div className={classes.wrapper}>
             <div className={classes.wrapperBlock}>
                 <img className={classes.content__img} src="https://images.ctfassets.net/hrltx12pl8hq/7yQR5uJhwEkRfjwMFJ7bUK/dc52a0913e8ff8b5c276177890eb0129/offset_comp_772626-opt.jpg?fit=fill&w=800&h=300" alt=""></img>
             </div>
@@ -21,14 +23,13 @@ const  ProfileInfo = (props) => {
                 </div>
             </div>
             <div>
-
-                <ul class="collection with-header">
-                    <li class="collection-header">Contacts</li>
-                    <li class="collection-item">Facebook: <a> {props.profile.contacts.facebook}</a></li>
-                    <li class="collection-item">Vk: <a> {props.profile.contacts.vk}</a></li>
-                    <li class="collection-item">Twitter: <a> {props.profile.contacts.twitter}</a></li>
-                    <li class="collection-item">instagram: <a> {props.profile.contacts.instagram}</a></li>
-                    <li class="collection-item">Github: <a> {props.profile.contacts.github}</a></li>
+                <ul>
+                    <h3>Contacts</h3>
+                    <li>Facebook: <a> {props.profile.contacts.facebook}</a></li>
+                    <li>Vk: <a> {props.profile.contacts.vk}</a></li>
+                    <li>Twitter: <a> {props.profile.contacts.twitter}</a></li>
+                    <li>instagram: <a> {props.profile.contacts.instagram}</a></li>
+                    <li>Github: <a> {props.profile.contacts.github}</a></li>
                 </ul>
             </div>
             <div class="collection">

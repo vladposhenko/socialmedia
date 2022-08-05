@@ -1,19 +1,24 @@
 import classes from './Header.module.css';
 import {NavLink} from "react-router-dom";
+import {Box, Grid} from "@mui/material";
+import Button from "@mui/material/Button";
 
 const Header = (props) => {
     return (
-        <header  className={classes.header}>
-            <a href="">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Facebook_logo_%28square%29.png" alt="132"></img>
-            </a>
-            <div className={classes.logInBtn}>
-                {props.isAuth ? props.login
-                    : <NavLink to={'/login'} >LogIn</NavLink>  }
-
-            </div>
-
-        </header>
+        <Grid container  className={classes.header}>
+            <Grid item xs={6} >
+                <a href="">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Facebook_logo_%28square%29.png" alt="132"></img>
+                </a>
+            </Grid>
+            <Grid item xs={6} >
+                <div className={classes.logInBtn}>
+                    {props.isAuth
+                        ? <div> <span className={classes.name}>{props.login}</span><Button className={classes.logoutBtn} variant="contained" size="small" onClick={props.logout}>LogOut</Button> </div>
+                        : <NavLink to={'/login'} >LogIn</NavLink>  }
+                </div>
+            </Grid>
+        </Grid>
     )
 }
 

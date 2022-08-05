@@ -1,8 +1,18 @@
 .header {
     grid-area: header;
-    background-color: blueviolet;
+    background-color: #304040;
     padding: 20px;
-    border-radius: 5px;
+    z-index: 10;
+    color: #C9D1C8;
+}
+
+.logoutBtn {
+    background-color: #5B7065;
+}
+
+.logoutBtn:hover {
+    background-color:#C9D1C8;
+
 }
   
   .header img {
@@ -11,4 +21,8 @@
   }
   .logInBtn {
       float:right;
+  }
+
+  .name {
+      margin-right: 30px;
   }

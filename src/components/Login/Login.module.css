@@ -1,0 +1,30 @@
+.loginPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.loginInput {
+    width: 350px;
+
+}
+
+.remember {
+    margin-bottom: 20px;
+}
+
+.loginButton {
+    background-color: #04202C;
+    width: 350px;
+}
+
+.loginButton:hover {
+    background-color: #5B7065;
+}
+
+/*.error {*/
+/*    border: 2px solid red;*/
+/*    color: red;*/
+/*    padding: 5px;*/
+/*}*/

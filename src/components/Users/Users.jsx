@@ -2,6 +2,8 @@ import React from "react";
 import classes from './users.module.css'
 import userPhoto from './../../assets/images/user.png'
 import {NavLink} from "react-router-dom";
+import Button from "@mui/material/Button";
+import {Pagination} from "@mui/material";
 
 
 let Users = (props) => {
@@ -22,11 +24,11 @@ let Users = (props) => {
                         </NavLink>
                         <div>
                             {user.followed
-                                ? <button className={classes.btnDisabled}
+                                ? <Button size="small" variant="contained" className={classes.btnDisabled}
                                           disabled={props.followingInProgress.some( id => id === user.id )}
-                                          onClick={() => {props.unfollow(user.id)}}>UnFollow</button>
-                                : <button disabled={props.followingInProgress.some( id => id === user.id )}
-                                          onClick={() => {props.follow(user.id)}}>Follow</button>
+                                          onClick={() => {props.unfollow(user.id)}}>UnFollow</Button>
+                                : <Button size="small" variant="contained" disabled={props.followingInProgress.some( id => id === user.id )}
+                                          onClick={() => {props.follow(user.id)}}>Follow</Button>
                             }
                         </div>
                     </span>
@@ -46,7 +48,7 @@ let Users = (props) => {
             </div>
             <ul className={classes.pageContainer}>
                 {pages.map(page => {
-                    return <li className={props.currentPage === page ? classes.selectedPage : classes.page}
+                    return <li count={1} className={props.currentPage === page ? classes.selectedPage : classes.page}
                                  onClick={(e) => {
                                      props.onPageChanged(page)
                                  }}><a className={classes.pageLink} href="#">{page}</a></li>

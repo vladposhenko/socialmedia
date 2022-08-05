@@ -2,18 +2,19 @@
   display:grid;
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
-  grid-gap: 10px;
-  max-width:1200px;
   margin:0 auto;
+  max-width: 1300px;
+  color: #333;
   grid-template-areas: 
   "header header header"
   "nav content content"
   ;
+  font-family: 'Roboto';
 }
 
 .app-wrapper-content {
   grid-area: content;
-  background-color: seashell;
+  background-color: #C9D1C8;
 }
 
 
