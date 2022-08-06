@@ -1,11 +1,12 @@
 .preloader{
-    width: 73%;
-    height: 150vh;
+    width: 100vw;
+    height: 100vh;
     position: absolute;
     background-color: #04202C;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-basis: 33%;
-    z-index: 5;
+    z-index: 10;
 }
+
