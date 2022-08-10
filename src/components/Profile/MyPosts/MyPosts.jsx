@@ -6,20 +6,20 @@ import {maxLengthCreator, required} from "../../../utilits/validators/validators
 import {Element} from "../../common/FormsControls/FormsControls";
 
 
+function MyPosts(props) {
 
-const MyPosts = (props) => {
-    let postElements = props.posts.map((p) => <Post message={p.message} key={p.id} likesCount={p.likesCount}/> )
+    let postElements = props.posts.map((p) => <Post message={p.message} key={p.id} likesCount={p.likesCount}/>)
 
     let onSubmit = (value) => {
         props.addPost(value.addPostText)
     }
     return (
         <div className={classes.postsBlock}>
-          <h3>My Posts</h3>
+            <h3>My Posts</h3>
             <AddPostReduxForm onSubmit={onSubmit}/>
-          <div className={classes.posts}>
-              {postElements}
-          </div>
+            <div className={classes.posts}>
+                {postElements}
+            </div>
         </div>
     )
 }

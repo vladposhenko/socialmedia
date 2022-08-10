@@ -8,7 +8,7 @@ const Header = (props) => {
         <Grid container  className={classes.header}>
             <Grid item xs={6} >
                 <a href="">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Facebook_logo_%28square%29.png" alt="132"></img>
+                    <img src="https://resource.logitechg.com/w_385,c_limit,q_auto,f_auto,dpr_auto/d_transparent.gif/content/dam/gaming/en/homepage/pro-series-logo.png?v=1" alt="132"></img>
                 </a>
             </Grid>
             <Grid item xs={6} >

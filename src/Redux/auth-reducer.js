@@ -2,7 +2,7 @@ import {authApi, usersAPI} from "../api/api";
 import {stopSubmit} from "redux-form";
 // import {toggleFollowingProgress, unfollowSuccess} from "./users-reducer";
 
-const SET_USERS_DATA = 'SET_USERS_DATA'
+const SET_USERS_DATA = 'social-network/auth/SET_USERS_DATA'
 const SET_USER = 'SET_USER'
 
 let initialState = {
@@ -33,16 +33,15 @@ const authReducer = (state = initialState,action) => {
 export const setAuthUsersData = (userId, email, login, isAuth) => ({type:SET_USERS_DATA,data: {userId, email, login, isAuth}})
 // export const setUserData = (email,password,rememberMe) => ({type: SET_USER, data: {email,password,rememberMe} })
 
-export const getAuth = () => {
-    return (dispatch) => {
-        return usersAPI.getAuth().then(response => {
-            if (response.data.resultCode === 0) {
-                let {id,login,email} = response.data.data
-                dispatch(setAuthUsersData(id, email, login, true))
-            }
-        })
+export const getAuth = () => async (dispatch) => {
+    let response = await usersAPI.getAuth();
+    if (response.data.resultCode === 0) {
+        let {id,login,email} = response.data.data
+        dispatch(setAuthUsersData(id, email, login, true))
     }
 }
+
+
 export const login = (email, password, rememberMe) => (dispatch) => {
         authApi.login(email, password, rememberMe).then(response => {
             if(response.data.resultCode === 0) {

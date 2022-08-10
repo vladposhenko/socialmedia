@@ -6,6 +6,7 @@ let Preloader = (props) => {
     return (
         <div className={classes.preloader}>
             <img src={loader} />
+            <div className={classes.loaderName}>LOADING....</div>
         </div>
     )
 }

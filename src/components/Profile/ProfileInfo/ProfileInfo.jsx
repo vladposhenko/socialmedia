@@ -2,6 +2,7 @@ import classes from './ProfileInfo.module.css'
 import Preloader from "../../common/Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus"
 import Button from "@mui/material/Button";
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 const  ProfileInfo = (props) => {
 
     if(!props.profile) {
@@ -19,7 +20,7 @@ const  ProfileInfo = (props) => {
               } alt=""></img>
                 <div class="col s4">
                     <p>{props.profile.fullName}</p>
-                    <ProfileStatus aboutMe={props.profile.aboutMe} status={props.status} updateStatus={props.updateStatus}/>
+                    <ProfileStatusWithHooks aboutMe={props.profile.aboutMe} status={props.status} updateStatus={props.updateStatus}/>
                 </div>
             </div>
             <div>

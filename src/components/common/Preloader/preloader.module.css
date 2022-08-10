@@ -1,5 +1,5 @@
-.preloader{
-    width: 100vw;
+.preloader {
+    width: 100%;
     height: 100vh;
     position: absolute;
     background-color: #04202C;
@@ -10,3 +10,6 @@
     z-index: 10;
 }
 
+.loaderName {
+    color: white;
+}

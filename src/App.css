@@ -13,8 +13,10 @@
 }
 
 .app-wrapper-content {
+  position: relative;
   grid-area: content;
   background-color: #C9D1C8;
+  width: 100%;
 }
 
 
