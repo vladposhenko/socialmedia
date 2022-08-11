@@ -1,6 +1,5 @@
 import {authApi, usersAPI} from "../api/api";
 import {stopSubmit} from "redux-form";
-// import {toggleFollowingProgress, unfollowSuccess} from "./users-reducer";
 
 const SET_USERS_DATA = 'social-network/auth/SET_USERS_DATA'
 const SET_USER = 'SET_USER'
@@ -42,26 +41,22 @@ export const getAuth = () => async (dispatch) => {
 }
 
 
-export const login = (email, password, rememberMe) => (dispatch) => {
-        authApi.login(email, password, rememberMe).then(response => {
-            if(response.data.resultCode === 0) {
-                dispatch(getAuth())
-            } else {
-                let message = response.data.messages.length > 0 ? response.data.messages : "Some error"
-                dispatch(stopSubmit("login" , {_error: message}))
-            }
-        })
+export const login = (email, password, rememberMe) => async (dispatch) => {
+        let response = await authApi.login(email, password, rememberMe);
+        if(response.data.resultCode === 0) {
+            dispatch(getAuth())
+        } else {
+            let message = response.data.messages.length > 0 ? response.data.messages : "Some error"
+            dispatch(stopSubmit("login" , {_error: message}))
+        }
 }
 
 
-export const logout = () => {
-    return (dispatch) => {
-        authApi.logout().then(response => {
+export const logout = () => async (dispatch) => {
+        let response = await authApi.logout()
             if(response.data.resultCode === 0) {
                 dispatch(setAuthUsersData(null, null, null, false))
             }
-        })
-    }
 }
 
 

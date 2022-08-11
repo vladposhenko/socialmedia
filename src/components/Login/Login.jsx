@@ -11,10 +11,10 @@ import {Alert} from "@mui/material";
 
 // const Input = Element("input");
 
-const LoginForm = (props) => {
+const LoginForm = ({ handleSubmit, error }) => {
     return(
         <div>
-            <form onSubmit={props.handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <div>
                     <Field className={classes.loginInput} validate={[required]} placeholder={'Email'} name={'email'} component={Input}/>
                 </div>
@@ -24,9 +24,9 @@ const LoginForm = (props) => {
                 <div>
                     <Field  component={CheckBox} name={'rememberMe'} type="checkbox"/> <div className={classes.remember}>Remember Me</div>
                 </div>
-                { props.error &&
+                { error &&
                     <Alert severity="error" className={classes.error}>
-                        {props.error}
+                        {error}
                     </Alert>
                 }
                 <div>
