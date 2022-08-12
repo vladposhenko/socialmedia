@@ -16,7 +16,7 @@ let Users = ({currentPage, totalUsersCount,pageSize,  onPageChanged, ...props}) 
                                               key={user.id}/>)
             }
             </div>
-            <Paginator totalUsersCount={totalUsersCount}
+            <Paginator totalItemsCount={totalUsersCount}
                        pageSize={pageSize}
                        onPageChanged={onPageChanged}
                        currentPage={currentPage}

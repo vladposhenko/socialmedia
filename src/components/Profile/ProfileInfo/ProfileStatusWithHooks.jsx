@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react"
+import {TextField} from "@mui/material";
 
 
 const ProfileStatusWithHooks = (props) =>  {
@@ -27,7 +28,7 @@ const ProfileStatusWithHooks = (props) =>  {
                 <p onDoubleClick={activateEditMode}>{props.status || 'NO STATUS'}</p>
             }
             {editMode &&
-                <input onChange={onStatusChange}  autoFocus={true} value={status} onBlur={deleteEditMode}  type="text"/>
+                <TextField variant="filled" onChange={onStatusChange}  autoFocus={true} value={status} onBlur={deleteEditMode}  type="text"/>
             }
         </>
 }

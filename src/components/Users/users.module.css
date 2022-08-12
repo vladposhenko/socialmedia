@@ -2,6 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     margin-top: 50px;
+
 }
 
 .pageContainer li {
@@ -47,6 +48,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 50px;
+    padding: 20px;
 }
 
 .user {
@@ -55,4 +57,9 @@
 
 .btnDisabled:disabled {
     color: red;
+}
+
+.mainWrap {
+    display: flex;
+    justify-content: center;
 }
