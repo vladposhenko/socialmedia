@@ -1,9 +1,21 @@
 import {profileAPI, usersAPI} from "../api/api";
+import {stopSubmit} from "redux-form";
 
 const ADD_POST = 'ADD-POST';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_STATUS = 'SET_STATUS';
-const DELETE_POST = 'DELETE POST';
+const DELETE_POST = 'DELETE_POST';
+const SAVE_PHOTO = 'SAVE_PHOTO';
+const SAVE_PROFILE = 'SAVE_PROFILE';
+
+
+// type profileInitialState = {
+//     posts: Array<object>
+//     profile: null
+//     status: string
+// }
+
+
 
 let initialState = {
     posts: [
@@ -14,6 +26,8 @@ let initialState = {
     profile: null,
     status: '',
 }
+
+
 const profileReducer = (state = initialState,action) => {
     switch (action.type) {
         case ADD_POST: {
@@ -44,6 +58,13 @@ const profileReducer = (state = initialState,action) => {
             }
         }
 
+        case SAVE_PHOTO: {
+            return {
+                ...state,
+                profile: {...state.profile, photos:action.photos}
+            }
+        }
+
         default: {
             return state;
         }
@@ -56,6 +77,8 @@ export const addPostActionCreator = (postText) => ({type: ADD_POST,postText})
 export const deletePost = (postId) => ({type: DELETE_POST,postId})
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
 export const setStatus = (status) => ({type: SET_STATUS, status})
+export const savePhotoSuccess = (photos) => ({type: SAVE_PHOTO, photos})
+export const saveProfileSuccess = (profile) => ({type: SAVE_PHOTO, profile})
 
 // REDUX THUNKS
 export const getProfileUser = (userId) => async (dispatch) => {
@@ -75,5 +98,24 @@ export const updateStatus = (status) => async (dispatch) => {
     }
 }
 
+export const savePhoto = (file) => async (dispatch) => {
+    let response = await profileAPI.savePhoto(file)
+    if(response.data.resultCode === 0) {
+        dispatch(savePhotoSuccess(response.data.data.photos))
+    }
+}
+
+
+export const saveProfile = (profile) => async (dispatch, getState) => {
+    const response = await profileAPI.saveProfile(profile)
+    const userId = getState().auth.userId
+    if(response.data.resultCode === 0) {
+        console.log(response)
+        dispatch(getProfileUser(userId))
+    } else {
+        dispatch(stopSubmit("profileData" , {_error: response.data.messages[0]}))
+        return Promise.reject(response.data.messages[0])
+    }
+}
 
 export default profileReducer;

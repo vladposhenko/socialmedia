@@ -38,18 +38,38 @@ export const profileAPI = {
     },
     updateStatus (status) {
         return instance.put(`profile/status`, {status:status})
-    }
+    },
+    savePhoto (file) {
+        let formData = new FormData()
+        formData.append("image" ,file)
+        return instance.put(`profile/photo`, formData,{
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        })
+    },
+    saveProfile (profile) {
+        return instance.put(`profile`, profile)
+    },
 }
 
 export const authApi = {
-    login (email,password,rememberMe = false) {
+    login (email,password,rememberMe = false, captcha = null) {
         return instance.post('auth/login', {
             email,
             password,
-            rememberMe
+            rememberMe,
+            captcha
         })
     },
     logout () {
         return instance.delete('auth/login')
     }
+}
+
+export const securityApi = {
+    getCaptcha () {
+        return instance.post('security/get-captcha-url', )
+    },
+
 }

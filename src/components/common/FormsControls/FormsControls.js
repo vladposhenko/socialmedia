@@ -46,3 +46,18 @@ export const CheckBox = ({input,meta,child,element, ...props}) => {
         </div>
     )
 }
+
+
+export const Textarea = ({input,meta,child,element, ...props}) => {
+    const hasError = meta.touched && meta.error;
+    return (
+        <div className={classes.formControl  + " " + (hasError ? classes.error : "")}>
+            <div>
+                <textarea variant="filled"  {...input} {...props}/>
+            </div>
+            {hasError &&
+                <Alert severity="error">{meta.error}</Alert>
+            }
+        </div>
+    )
+}

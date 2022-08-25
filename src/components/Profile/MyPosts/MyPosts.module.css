@@ -13,7 +13,7 @@
 }
 
 .send {
-    background: blueviolet;
+    background: #304040;
     color: #fff;
     width: 120px;
     height: 30px;
@@ -22,6 +22,13 @@
     cursor: pointer;
 }
 .send:hover {
-    background: palevioletred;
+    background: #1b3131;
 
+}
+
+.areaField {
+    resize: none;
+    padding: 10px;
+    width: 500px;
+    border-radius: 10px;
 }

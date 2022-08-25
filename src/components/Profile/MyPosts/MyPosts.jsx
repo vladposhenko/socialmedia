@@ -4,6 +4,7 @@ import Post from './Post/Post';
 import {Field, reduxForm} from "redux-form";
 import {maxLengthCreator, required} from "../../../utilits/validators/validators";
 import {Element} from "../../common/FormsControls/FormsControls";
+import Button from "@mui/material/Button";
 
 
 function MyPosts(props) {
@@ -25,14 +26,14 @@ function MyPosts(props) {
 }
 
 const maxLength10 = maxLengthCreator(10)
-const Textarea = Element("textarea");
+const Textarea = Element("Textarea");
 
 const AddPostForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
-                <Field component={Textarea} name="addPostText" placeholder="Enter new post"
+                <Field component={Textarea} className={classes.areaField} name="addPostText" placeholder="Enter new post"
                        validate={[required,maxLength10]}/>
-                <button type={"submit"} className=" btn-small scale-transition" className={classes.send}>Add Post</button>
+                <Button type={"submit"} className=" btn-small scale-transition" className={classes.send}>Add Post</Button>
         </form>
     )
 }
